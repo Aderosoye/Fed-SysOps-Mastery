@@ -1,0 +1,25 @@
+stages:
+  - validate
+
+yaml-validation:
+  stage: validate
+  image: python:3.12-alpine
+  before_script:
+    - pip install --no-cache-dir yamllint
+  script:
+    - yamllint -d "{extends: relaxed, rules: {line-length: disable, document-start: disable}}" .gitlab-ci.yml prometheus/prometheus.yml.example alertmanager/alertmanager.yml.example
+
+markdown-whitespace:
+  stage: validate
+  image: alpine:3.20
+  script:
+    - |
+      set -eu
+      files=$(find . -type f -name '*.md' -not -path './.git/*')
+      test -n "$files"
+      for file in $files; do
+        if grep -nE '[[:blank:]]+$' "$file"; then
+          echo "Trailing whitespace found in $file"
+          exit 1
+        fi
+      done
