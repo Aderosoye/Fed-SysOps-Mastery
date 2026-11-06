@@ -1,0 +1,32 @@
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+*.secret
+*.secrets.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Runtime state, databases, and backups
+data/
+*.db
+*.sqlite*
+*.dump
+*.sql.gz
+backups/
+
+# Local/editor artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.tmp
+
+# Private inventory and generated targets
+inventory/private/
+prometheus/file_sd/generated/
