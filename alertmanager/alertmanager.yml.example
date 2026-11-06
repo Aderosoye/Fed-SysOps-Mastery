@@ -1,0 +1,8 @@
+# Template only. No receiver, credential, or delivery path was verified.
+# Supply credentials through a supported secret mechanism; never commit them.
+route:
+  receiver: placeholder
+
+receivers:
+  - name: placeholder
+    # Add an actual receiver only after choosing and testing a notification channel.
