@@ -1,0 +1,15 @@
+# Sanitized template reconstructed from project notes, not an exported live file.
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets:
+          - localhost:9090
+
+  - job_name: node-exporter
+    static_configs:
+      - targets:
+          # Replace with the verified host/address in a local, untracked file.
+          - REPLACE_WITH_VERIFIED_NODE_EXPORTER_HOST:9100
